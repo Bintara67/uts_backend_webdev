@@ -1,5 +1,5 @@
 <?php
-require_once_database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class Sales {
     private $pdo;
@@ -19,7 +19,7 @@ class Sales {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addSales($sales) {
+    public function addSales($salesData) {
         $stmt = $this->pdo->prepare("
             INSERT INTO sales 
             (product_name, product_description, gross_product_price, tax_per_product, quantity_purchased, gross_revenue, total_tax, net_revenue, product_category, sku_number, weight, color, size, rating, stock, sales_rep, address, zipcode, phone, email, loyalty_points, customer_id, country_id) 
@@ -28,29 +28,29 @@ class Sales {
         ");
 
         $stmt->execute([
-            'product_name' => $sales['product_name'],
-            'product_description' => $sales['product_description'],
-            'gross_product_price' => $sales['gross_product_price'],
-            'tax_per_product' => $sales['tax_per_product'],
-            'quantity_purchased' => $sales['quantity_purchased'],
-            'gross_revenue' => $sales['gross_revenue'],
-            'total_tax' => $sales['total_tax'],
-            'net_revenue' => $sales['net_revenue'],
-            'product_category' => $sales['product_category'],
-            'sku_number' => $sales['sku_number'],
-            'weight' => $sales['weight'],
-            'color' => $sales['color'],
-            'size' => $sales['size'],
-            'rating' => $sales['rating'],
-            'stock' => $sales['stock'],
-            'sales_rep' => $sales['sales_rep'],
-            'address' => $sales['address'],
-            'zipcode' => $sales['zipcode'],
-            'phone' => $sales['phone'],
-            'email' => $sales['email'],
-            'loyalty_points' => $sales['loyalty_points'],
-            'customer_id' => $sales['customer_id'],
-            'country_id' => $sales['country_id']
+            'product_name' => $salesData['product_name'],
+            'product_description' => $salesData['product_description'],
+            'gross_product_price' => $salesData['gross_product_price'],
+            'tax_per_product' => $salesData['tax_per_product'],
+            'quantity_purchased' => $salesData['quantity_purchased'],
+            'gross_revenue' => $salesData['gross_revenue'],
+            'total_tax' => $salesData['total_tax'],
+            'net_revenue' => $salesData['net_revenue'],
+            'product_category' => $salesData['product_category'],
+            'sku_number' => $salesData['sku_number'],
+            'weight' => $salesData['weight'],
+            'color' => $salesData['color'],
+            'size' => $salesData['size'],
+            'rating' => $salesData['rating'],
+            'stock' => $salesData['stock'],
+            'sales_rep' => $salesData['sales_rep'],
+            'address' => $salesData['address'],
+            'zipcode' => $salesData['zipcode'],
+            'phone' => $salesData['phone'],
+            'email' => $salesData['email'],
+            'loyalty_points' => $salesData['loyalty_points'],
+            'customer_id' => $salesData['customer_id'],
+            'country_id' => $salesData['country_id']
         ]);
     }
 
@@ -85,29 +85,29 @@ class Sales {
 
         $stmt->execute([
             'id' => $orderId,
-            'product_name' => $sales['product_name'],
-            'product_description' => $sales['product_description'],
-            'gross_product_price' => $sales['gross_product_price'],
-            'tax_per_product' => $sales['tax_per_product'],
-            'quantity_purchased' => $sales['quantity_purchased'],
-            'gross_revenue' => $sales['gross_revenue'],
-            'total_tax' => $sales['total_tax'],
-            'net_revenue' => $sales['net_revenue'],
-            'product_category' => $sales['product_category'],
-            'sku_number' => $sales['sku_number'],
-            'weight' => $sales['weight'],
-            'color' => $sales['color'],
-            'size' => $sales['size'],
-            'rating' => $sales['rating'],
-            'stock' => $sales['stock'],
-            'sales_rep' => $sales['sales_rep'],
-            'address' => $sales['address'],
-            'zipcode' => $sales['zipcode'],
-            'phone' => $sales['phone'],
-            'email' => $sales['email'],
-            'loyalty_points' => $sales['loyalty_points'],
-            'customer_id' => $sales['customer_id'],
-            'country_id' => $sales['country_id']
+            'product_name' => $salesData['product_name'],
+            'product_description' => $salesData['product_description'],
+            'gross_product_price' => $salesData['gross_product_price'],
+            'tax_per_product' => $salesData['tax_per_product'],
+            'quantity_purchased' => $salesData['quantity_purchased'],
+            'gross_revenue' => $salesData['gross_revenue'],
+            'total_tax' => $salesData['total_tax'],
+            'net_revenue' => $salesData['net_revenue'],
+            'product_category' => $salesData['product_category'],
+            'sku_number' => $salesData['sku_number'],
+            'weight' => $salesData['weight'],
+            'color' => $salesData['color'],
+            'size' => $salesData['size'],
+            'rating' => $salesData['rating'],
+            'stock' => $salesData['stock'],
+            'sales_rep' => $salesData['sales_rep'],
+            'address' => $salesData['address'],
+            'zipcode' => $salesData['zipcode'],
+            'phone' => $salesData['phone'],
+            'email' => $salesData['email'],
+            'loyalty_points' => $salesData['loyalty_points'],
+            'customer_id' => $salesData['customer_id'],
+            'country_id' => $salesData['country_id']
         ]);
     }
 
