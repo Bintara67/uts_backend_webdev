@@ -1,5 +1,5 @@
 <?php
-require_once_database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class Customers {
     private $pdo;
@@ -19,7 +19,7 @@ class Customers {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addCustomer($customer) {
+    public function addCustomer($customerData) {
         $stmt = $this->pdo->prepare("
             INSERT INTO customers 
             (first_name, last_name, gender, email, phone_number, address, education, occupation, date_of_birth, monthly_income, credit_score, marital_status) 
@@ -28,22 +28,22 @@ class Customers {
         ");
 
         $stmt->execute([
-            'first_name' => $customer['first_name'],
-            'last_name' => $customer['last_name'],
-            'gender' => $customer['gender'],
-            'email' => $customer['email'],
-            'phone_number' => $customer['phone_number'],
-            'address' => $customer['address'],
-            'education' => $customer['education'],
-            'occupation' => $customer['occupation'],
-            'date_of_birth' => $customer['date_of_birth'],
-            'monthly_income' => $customer['monthly_income'],
-            'credit_score' => $customer['credit_score'],
-            'marital_status' => $customer['marital_status'],
+            'first_name' => $customerData['first_name'],
+            'last_name' => $customerData['last_name'],
+            'gender' => $customerData['gender'],
+            'email' => $customerData['email'],
+            'phone_number' => $customerData['phone_number'],
+            'address' => $customerData['address'],
+            'education' => $customerData['education'],
+            'occupation' => $customerData['occupation'],
+            'date_of_birth' => $customerData['date_of_birth'],
+            'monthly_income' => $customerData['monthly_income'],
+            'credit_score' => $customerData['credit_score'],
+            'marital_status' => $customerData['marital_status'],
         ]);
     }
 
-    public function updateCustomer($customerId, $customer) {
+    public function updateCustomer($customerId, $customerData) {
         $stmt = $this->pdo->prepare("
             UPDATE customers SET 
             first_name = :first_name, 
@@ -63,18 +63,18 @@ class Customers {
 
         $stmt->execute([
             'id' => $customerId,
-            'first_name' => $customer['first_name'],
-            'last_name' => $customer['last_name'],
-            'gender' => $customer['gender'],
-            'email' => $customer['email'],
-            'phone_number' => $customer['phone_number'],
-            'address' => $customer['address'],
-            'education' => $customer['education'],
-            'occupation' => $customer['occupation'],
-            'date_of_birth' => $customer['date_of_birth'],
-            'monthly_income' => $customer['monthly_income'],
-            'credit_score' => $customer['credit_score'],
-            'marital_status' => $customer['marital_status'],
+            'first_name' => $customerData['first_name'],
+            'last_name' => $customerData['last_name'],
+            'gender' => $customerData['gender'],
+            'email' => $customerData['email'],
+            'phone_number' => $customerData['phone_number'],
+            'address' => $customerData['address'],
+            'education' => $customerData['education'],
+            'occupation' => $customerData['occupation'],
+            'date_of_birth' => $customerData['date_of_birth'],
+            'monthly_income' => $customerData['monthly_income'],
+            'credit_score' => $customerData['credit_score'],
+            'marital_status' => $customerData['marital_status'],
         ]);
     }
 
