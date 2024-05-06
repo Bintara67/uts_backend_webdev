@@ -1,5 +1,5 @@
 <?php
-require_once_database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class Purchases {
     private $pdo;
@@ -19,7 +19,7 @@ class Purchases {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addPurchase($purchase) {
+    public function addPurchase($purchaseData) {
         $stmt = $this->pdo->prepare("
             INSERT INTO purchases 
             (supplier, last_visited, return_status, warranty, purchase_date, return_policy, feedback, order_id) 
@@ -28,14 +28,14 @@ class Purchases {
         ");
 
         $stmt->execute([
-            'supplier' => $purchase['supplier'],
-            'last_visited' => $purchase['last_visited'],
-            'return_status' => $purchase['return_status'],
-            'warranty' => $purchase['warranty'],
-            'purchase_date' => $purchase['purchase_date'],
-            'return_policy' => $purchase['return_policy'],
-            'feedback' => $purchase['feedback'],
-            'order_id' => $purchase['order_id']
+            'supplier' => $purchaseData['supplier'],
+            'last_visited' => $purchaseData['last_visited'],
+            'return_status' => $purchaseData['return_status'],
+            'warranty' => $purchaseData['warranty'],
+            'purchase_date' => $purchaseData['purchase_date'],
+            'return_policy' => $purchaseData['return_policy'],
+            'feedback' => $purchaseData['feedback'],
+            'order_id' => $purchaseData['order_id']
         ]);
     }
 
@@ -55,14 +55,14 @@ class Purchases {
 
         $stmt->execute([
             'id' => $purchaseId,
-            'supplier' => $purchase['supplier'],
-            'last_visited' => $purchase['last_visited'],
-            'return_status' => $purchase['return_status'],
-            'warranty' => $purchase['warranty'],
-            'purchase_date' => $purchase['purchase_date'],
-            'return_policy' => $purchase['return_policy'],
-            'feedback' => $purchase['feedback'],
-            'order_id' => $purchase['order_id']
+            'supplier' => $purchaseData['supplier'],
+            'last_visited' => $purchaseData['last_visited'],
+            'return_status' => $purchaseData['return_status'],
+            'warranty' => $purchaseData['warranty'],
+            'purchase_date' => $purchaseData['purchase_date'],
+            'return_policy' => $purchaseData['return_policy'],
+            'feedback' => $purchaseData['feedback'],
+            'order_id' => $purchaseData['order_id']
         ]);
     }
 
