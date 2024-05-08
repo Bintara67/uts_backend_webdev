@@ -6,7 +6,7 @@
     Mata Kuliah : Back-End Web Development
 
 
-### Project ini terdiri dari beberapa folder utama: config, public, src, dengan masing-masing memiliki sub-folder atau file, berikut penjelsannya:
+### Project ini terdiri dari beberapa folder utama: config, public, src, dengan masing-masing memiliki sub-folder atau file, berikut penjelasannya:
 
 ## 1. config (Konfigurasi Sistem)
     => Koneksi Database (`config/database.php`)
